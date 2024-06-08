@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "paramstate.h": "c",
-        "paramlib.h": "c"
+        "paramlib.h": "c",
+        "paramaverage.h": "c"
     }
 }

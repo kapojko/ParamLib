@@ -6,12 +6,14 @@
 #include "ParamLib.h"
 #include "ParamState.h"
 #include "ParamValue.h"
+#include "ParamAverage.h"
 
 int tests_run = 0;
 
 static const char *RunAllTests(void) {
     mu_run_test(ParamState_UnitTest);
     mu_run_test(ParamValue_UnitTest);
+    mu_run_test(ParamAverage_UnitTest);
     return 0;
 }
 

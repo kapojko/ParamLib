@@ -4,23 +4,16 @@
 #include <stdbool.h>
 #include "ParamLib.h"
 
-#define MAX_AVERAGE_COUNT 3
-
 struct ParamValue {
     bool set;
     float value;
-    
-    float valueBuf[MAX_AVERAGE_COUNT];
-    short valueBufIndex;
-    short valueBufCount;
+    float alpha;
     ParamTime updateTime;
-    
     int maxDataAge;
-    short averageCount;
 };
 
-// Init ParamValue, maxDataAge: max data age in ms (or 0 if no limit), averageCount: number of values to average (or 0 if no average)
-void InitParamValue(struct ParamValue *pv, int maxDataAge, short averageCount);
+void InitParamValue(struct ParamValue *pv, int maxDataAge, float alpha);
+void InitParamValueForN(struct ParamValue *pv, int maxDataAge, int n);
 void UpdateParamValue(struct ParamValue *pv, float value, ParamTime ctime);
 void ParamValueStep(struct ParamValue *pv, ParamTime ctime);
 void ClearParamValue(struct ParamValue *pv);
