@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "paramstate.h": "c",
+        "paramlib.h": "c"
+    }
+}
