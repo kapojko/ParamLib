@@ -5,9 +5,10 @@
 #include <stdbool.h>
 
 typedef uint32_t ParamTime;
+typedef int32_t ParamTimeDiff;
 
 struct ParamLibPlatform {
-    int (*getTimeDiffMs)(ParamTime end, ParamTime start);
+    ParamTimeDiff (*getTimeDiffMs)(ParamTime end, ParamTime start);
     ParamTime invalidTime;
     ParamTime freq;
 };

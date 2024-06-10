@@ -29,7 +29,7 @@ void UpdateParamValue(struct ParamValue *pv, float value, ParamTime ctime) {
 void ParamValueStep(struct ParamValue *pv, ParamTime ctime) {
     // check data age
     if (pv->maxDataAge != 0) {
-        int age = paramLibPlatform.getTimeDiffMs(ctime, pv->updateTime);
+        ParamTimeDiff age = paramLibPlatform.getTimeDiffMs(ctime, pv->updateTime);
         if (age > pv->maxDataAge) {
             ClearParamValue(pv);
         }

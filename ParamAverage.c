@@ -45,7 +45,7 @@ void UpdateParamAverage(struct ParamAverage *pv, float value, ParamTime ctime) {
 void ParamAverageStep(struct ParamAverage *pv, ParamTime ctime) {
     // check data age
     if (pv->maxDataAge != 0) {
-        int age = paramLibPlatform.getTimeDiffMs(ctime, pv->updateTime);
+        ParamTimeDiff age = paramLibPlatform.getTimeDiffMs(ctime, pv->updateTime);
         if (age > pv->maxDataAge) {
             ClearParamAverage(pv);
         }
