@@ -11,7 +11,7 @@ void InitParamValue(struct ParamValue *pv, int maxDataAge, float alpha) {
 
 void InitParamValueForN(struct ParamValue *pv, int maxDataAge, int n) {
     // Set alpha as an "average" of n values
-    float alpha = 1.0f - 1.0f / n;
+    float alpha = 2.0f / (n + 1);
 
     InitParamValue(pv, maxDataAge, alpha);  
 }
@@ -75,8 +75,8 @@ const char *ParamValue_UnitTest(void) {
     mu_assert("Value should be cleared", !pv.set);
 
     // Test InitParamValueForN
-    InitParamValueForN(&pv, 0, 3);
-    mu_assert("Alpha should be 0.667", ApproxEqual(pv.alpha, 0.667f, 0.01f));
+    InitParamValueForN(&pv, 0, 10);
+    mu_assert("Alpha should be 0.182", ApproxEqual(pv.alpha, 0.182f, 0.01f));
 
     return 0;
 }
